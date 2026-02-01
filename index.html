@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piken's Tile | Fliesen & Design</title>
+    <meta name="description"
+        content="Piken's Tile - Ihr Fachbetrieb für Fliesen, Naturstein, Sanierung und Planung in Vorarlberg.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar animate-on-scroll fade-up">
+        <div class="container nav-content">
+            <a href="#" class="logo-link text-logo">
+                <div class="logo-text-top">Piken's Tile</div>
+                <div class="logo-text-bottom">FLIESENLEGERFACHBETRIEB</div>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Start</a>
+                <a href="#about">Über Uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact" class="btn-primary">Kontakt</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <a href="#home">Start</a>
+        <a href="#about">Über Uns</a>
+        <a href="#services">Leistungen</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="animate-on-scroll scale-in">Fliesen • Sanierung • Naturstein</h1>
+            <p class="subtitle animate-on-scroll fade-up delay-200">Ihr neuer Ansprechpartner rund um Fliesen,
+                Naturstein,
+                Design und Qualität.</p>
+            <div class="hero-buttons animate-on-scroll fade-up delay-300">
+                <a href="#contact" class="btn-primary">Projekt anfragen</a>
+                <a href="#services" class="btn-secondary">Unsere Leistungen</a>
+            </div>
+        </div>
+        <div class="scroll-indicator animate-on-scroll fade-up delay-500">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll slide-right">
+                    <div class="image-slider">
+                        <img src="project_2.png" alt="Fliesenleger Referenz 1" class="active">
+                        <img src="project_3.jpg" alt="Fliesenleger Referenz 2">
+                        <img src="project_4.png" alt="Fliesenleger Referenz 3">
+                        <img src="project_5.jpg" alt="Fliesenleger Referenz 4">
+                    </div>
+                    <div class="image-accent"></div>
+                </div>
+                <div class="about-text animate-on-scroll fade-up">
+                    <h2 class="gold-text">Wir sind Piken's Tile.</h2>
+                    <p>Hallo, wir sind Piken's Tile - eure neuen Ansprechpartner rund um Fliesen, Naturstein, Design und
+                        Qualität.</p>
+                    <p>Von modernen Bädern über stilvolle Wohnräume bis hin zu präziser Handwerksarbeit: Wir bringen
+                        eure Ideen auf den Boden - und an die Wand!</p>
+
+                    <div class="stats-grid animate-on-scroll fade-up delay-200">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="100">100%</span>
+                            <span class="stat-label">Qualität</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Profi</span>
+                            <span class="stat-label">Handwerk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section dark-section">
+        <div class="container">
+            <div class="section-header center-text animate-on-scroll">
+                <h2>Unsere Leistungen</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll delay-100">
+                    <div class="card-icon">🧱</div>
+                    <h3>Fliesen & Naturstein</h3>
+                    <p>Professionelle Verlegung von Fliesen und Naturstein für jeden Bereich.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-200">
+                    <div class="card-icon">🏗️</div>
+                    <h3>Sanierung</h3>
+                    <p>Komplette Sanierung von Bädern und Wohnräumen aus einer Hand.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-300">
+                    <div class="card-icon">✏️</div>
+                    <h3>Planung</h3>
+                    <p>Individuelle Planung und Beratung für Ihr perfektes Zuhause.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-400">
+                    <div class="card-icon">🍳</div>
+                    <h3>Küche & Reparatur</h3>
+                    <p>Küchenfliesen und fachgerechte Reparaturen von Schäden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-wrapper animate-on-scroll">
+                <div class="contact-info">
+                    <h2>Kontaktieren Sie uns</h2>
+                    <p>Lassen Sie uns über Ihr Projekt sprechen. Wir beraten Sie gerne unverbindlich.</p>
+
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <span class="icon">📍</span>
+                            <span>Piken's Tile<br>Österreich / Vorarlberg</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📧</span>
+                            <a href="mailto:info@pikens-tile.at">info@pikens-tile.at</a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📱</span>
+                            <a href="tel:+436601525090">+43 660 152 50 90</a>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pikens_tile/" target="_blank" class="social-icon">IG</a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Ihr Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Ihre E-Mail" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h3>Piken's Tile</h3>
+            </div>
+            <p>&copy; 2025 Piken's Tile. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
