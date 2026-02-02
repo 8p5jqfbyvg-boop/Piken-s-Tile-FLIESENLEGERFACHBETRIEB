@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&family=Cinzel:wght@400;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -23,15 +23,91 @@
     <!-- Navigation -->
     <nav class="navbar animate-on-scroll fade-up">
         <div class="container nav-content">
-            <a href="#" class="logo-link text-logo">
-                <div class="logo-text-top">Piken's Tile</div>
-                <div class="logo-text-bottom">FLIESENLEGERFACHBETRIEB</div>
+            <a href="#" class="logo-link brand-logo">
+                <div class="brand-text">Piken's Tile</div>
+                <div class="brand-icon">
+                    <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#F5E6CA" />
+                                <stop offset="40%" style="stop-color:#C8A47E" />
+                                <stop offset="100%" style="stop-color:#8B6E4E" />
+                            </linearGradient>
+                            <filter id="gold-glow">
+                                <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.5" />
+                            </filter>
+                        </defs>
+
+                        <g transform="translate(0,0)">
+                            <!-- HAMMER (Left) - Exact Replication -->
+                            <!-- Handle with Hole -->
+                            <path d="M22 82 L42 62" stroke="url(#gold-gradient)" stroke-width="11"
+                                stroke-linecap="round" />
+                            <circle cx="26" cy="78" r="1.5" fill="#0F0F0F" opacity="0.6" />
+                            <!-- Hammer Head -->
+                            <path d="M10 42 L16 30 L40 40 L45 35 L38 52 L22 45 Z" fill="none" /> <!-- Bounding -->
+                            <!-- Neck/Collar -->
+                            <path d="M36 46 L42 40 L46 44 L40 50 Z" fill="url(#gold-gradient)" />
+                            <!-- Main Head Block & Claw -->
+                            <path d="M36 46 L30 35 Q 25 30 15 38 L12 42 L25 50 L28 60 L32 58 L30 48 Z"
+                                fill="url(#gold-gradient)" d="M15 45 L18 38 L30 42 L28 48 Z" />
+                            <!-- Precise Shape Trace -->
+                            <path
+                                d="M38 48 L42 44 L38 35 C 38 35 25 30 15 35 L12 42 L22 48 L22 51 L26 51 L26 48 L32 48 L32 50 Z"
+                                fill="url(#gold-gradient)" filter="url(#gold-glow)" />
+
+                            <!-- TROWEL (Right) - Exact Replication -->
+                            <!-- Handle -->
+                            <path d="M78 82 L58 62" stroke="url(#gold-gradient)" stroke-width="11"
+                                stroke-linecap="round" />
+                            <rect x="70" y="74" width="8" height="2" transform="rotate(45 74 75)" fill="#0F0F0F"
+                                opacity="0.3" /> <!-- Detail -->
+                            <!-- U-Shank -->
+                            <path d="M62 58 L58 54 Q 55 51 58 48 L62 44" stroke="url(#gold-gradient)" stroke-width="3"
+                                fill="none" />
+                            <!-- Wide Blade -->
+                            <path d="M60 46 L50 35 L55 25 Q 65 22 85 24 L95 40 L70 55 Z" fill="url(#gold-gradient)"
+                                filter="url(#gold-glow)" />
+                        </g>
+                        </g>
+
+                        <!-- Diamond Tile (Center, on top) -->
+                        <g>
+                            <!-- Main diamond shape -->
+                            <rect x="50" y="20" width="45" height="45" transform="rotate(45 50 20)" fill="#050505"
+                                stroke="url(#gold-gradient)" stroke-width="2.5" />
+
+                            <!-- Marble Veins (Clipped to diamond) -->
+                            <clipPath id="tile-clip">
+                                <rect x="50" y="20" width="45" height="45" transform="rotate(45 50 20)" />
+                            </clipPath>
+                            <g clip-path="url(#tile-clip)">
+                                <!-- Main jagged crack (Top-left to Bottom-right) -->
+                                <path d="M40 20 L45 35 L42 45 L55 60 L50 75 L60 85" stroke="url(#gold-gradient)"
+                                    stroke-width="0.8" fill="none" opacity="0.9" />
+
+                                <!-- Secondary crack (Crossing) -->
+                                <path d="M75 35 L60 45 L55 42 L35 55 L25 50" stroke="url(#gold-gradient)"
+                                    stroke-width="0.6" fill="none" opacity="0.8" />
+
+                                <!-- Fine details / Fissures -->
+                                <path d="M45 35 L50 30" stroke="url(#gold-gradient)" stroke-width="0.4" fill="none"
+                                    opacity="0.6" />
+                                <path d="M55 60 L65 55" stroke="url(#gold-gradient)" stroke-width="0.4" fill="none"
+                                    opacity="0.6" />
+                                <path d="M35 55 L30 65" stroke="url(#gold-gradient)" stroke-width="0.3" fill="none"
+                                    opacity="0.5" />
+                            </g>
+                        </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="brand-subtext">FLIESENLEGER-FACHBETRIEB</div>
             </a>
             <div class="nav-links">
-                <a href="#home">Start</a>
                 <a href="#about">Über Uns</a>
                 <a href="#services">Leistungen</a>
-                <a href="#contact" class="btn-primary">Kontakt</a>
+                <a href="#contact">Kontakt</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
@@ -51,13 +127,19 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <canvas id="hero-particles"></canvas>
         <div class="hero-overlay"></div>
+        <canvas id="hero-particles"></canvas>
         <div class="hero-content">
             <h1 class="animate-on-scroll scale-in">Fliesen • Sanierung • Naturstein</h1>
-            <p class="subtitle animate-on-scroll fade-up delay-200">Ihr neuer Ansprechpartner rund um Fliesen,
-                Naturstein,
-                Design und Qualität.</p>
+            <p class="subtitle animate-on-scroll fade-up delay-200">
+                Ihr neuer Ansprechpartner rund um Fliesen, Naturstein, Design und Qualität.<br><br>
+                <span class="hero-description">
+                    Mit jahrelanger Erfahrung und Leidenschaft für das Handwerk verwandeln wir Ihre Wohnträume in
+                    Realität.
+                    Wir stehen für exzellentes Handwerk, kreative Lösungen und absolute Zuverlässigkeit – von der ersten
+                    Beratung bis zur perfekten Verlegung.
+                </span>
+            </p>
             <div class="hero-buttons animate-on-scroll fade-up delay-300">
                 <a href="#contact" class="btn-primary">Projekt anfragen</a>
                 <a href="#services" class="btn-secondary">Unsere Leistungen</a>
@@ -77,19 +159,19 @@
             <div class="about-grid">
                 <div class="about-image animate-on-scroll slide-right">
                     <div class="image-slider">
-                        <img src="project_2.png" alt="Fliesenleger Referenz 1" class="active">
-                        <img src="project_3.jpg" alt="Fliesenleger Referenz 2">
-                        <img src="project_4.png" alt="Fliesenleger Referenz 3">
-                        <img src="project_5.jpg" alt="Fliesenleger Referenz 4">
+                        <img src="hero-1.jpg" alt="Referenz Bad 1" class="active">
+                        <img src="hero-2.jpg" alt="Referenz Bad 2">
+                        <img src="hero-3.jpg" alt="Referenz Bad 3">
                     </div>
                     <div class="image-accent"></div>
                 </div>
                 <div class="about-text animate-on-scroll fade-up">
                     <h2 class="gold-text">Wir sind Piken's Tile.</h2>
-                    <p>Hallo, wir sind Piken's Tile - eure neuen Ansprechpartner rund um Fliesen, Naturstein, Design und
-                        Qualität.</p>
-                    <p>Von modernen Bädern über stilvolle Wohnräume bis hin zu präziser Handwerksarbeit: Wir bringen
-                        eure Ideen auf den Boden - und an die Wand!</p>
+                    <p>Piken's Tile ist Ihr verlässlicher Partner für exklusive Fliesenarbeiten, edlen Naturstein und
+                        anspruchsvolles Design. Wir verbinden traditionelles Handwerk mit moderner Ästhetik, um Räume
+                        mit Charakter zu schaffen.</p>
+                    <p>Ob luxuriöse Bäder, stilvolle Wohnbereiche oder präzise Sanierungen: Wir realisieren Ihre
+                        Visionen mit höchster Sorgfalt und Qualität – vom Boden bis zur Wand.</p>
 
                     <div class="stats-grid animate-on-scroll fade-up delay-200">
                         <div class="stat-item">
@@ -111,29 +193,40 @@
         <div class="container">
             <div class="section-header center-text animate-on-scroll">
                 <h2>Unsere Leistungen</h2>
+                <p class="service-intro">
+                    Wir bieten Ihnen ein umfassendes Leistungsspektrum von der kreativen Planung bis zur fachgerechten
+                    Ausführung.
+                    Egal, ob Neubau, Sanierung oder kleine Reparaturen – wir setzen Ihre Wünsche mit höchster Präzision
+                    um.
+                </p>
                 <div class="divider"></div>
             </div>
 
             <div class="services-grid">
-                <div class="service-card animate-on-scroll delay-100">
+                <div class="service-card animate-on-scroll delay-100" data-service="fliesen">
                     <div class="card-icon">🧱</div>
                     <h3>Fliesen & Naturstein</h3>
                     <p>Professionelle Verlegung von Fliesen und Naturstein für jeden Bereich.</p>
                 </div>
-                <div class="service-card animate-on-scroll delay-200">
+                <div class="service-card animate-on-scroll delay-200" data-service="sanierung">
                     <div class="card-icon">🏗️</div>
                     <h3>Sanierung</h3>
                     <p>Komplette Sanierung von Bädern und Wohnräumen aus einer Hand.</p>
                 </div>
-                <div class="service-card animate-on-scroll delay-300">
+                <div class="service-card animate-on-scroll delay-300" data-service="planung">
                     <div class="card-icon">✏️</div>
                     <h3>Planung</h3>
                     <p>Individuelle Planung und Beratung für Ihr perfektes Zuhause.</p>
                 </div>
-                <div class="service-card animate-on-scroll delay-400">
+                <div class="service-card animate-on-scroll delay-400" data-service="kueche">
                     <div class="card-icon">🍳</div>
-                    <h3>Küche & Reparatur</h3>
-                    <p>Küchenfliesen und fachgerechte Reparaturen von Schäden.</p>
+                    <h3>Küche</h3>
+                    <p>Exklusive Fliesenspiegel, Rückwände und Böden für Ihre Küche.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-500" data-service="reparatur">
+                    <div class="card-icon">🔧</div>
+                    <h3>Reparatur</h3>
+                    <p>Fachgerechte Reparatur von Fliesen, Fugen und Wasserschäden.</p>
                 </div>
             </div>
         </div>
@@ -149,35 +242,62 @@
 
                     <div class="contact-details">
                         <div class="detail-item">
-                            <span class="icon">📍</span>
-                            <span>Piken's Tile<br>Österreich / Vorarlberg</span>
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <p>Vorarlberg Götzis</p>
                         </div>
                         <div class="detail-item">
-                            <span class="icon">📧</span>
-                            <a href="mailto:info@pikens-tile.at">info@pikens-tile.at</a>
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p><a href="tel:+436601525090">+43 660 1525090</a></p>
                         </div>
                         <div class="detail-item">
-                            <span class="icon">📱</span>
-                            <a href="tel:+436601525090">+43 660 152 50 90</a>
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <p><a href="mailto:Pikeneren11@gmail.com">Pikeneren11@gmail.com</a></p>
                         </div>
                     </div>
 
                     <div class="social-links">
-                        <a href="https://www.instagram.com/pikens_tile/" target="_blank" class="social-icon">IG</a>
+                        <a href="https://www.instagram.com/pikens_tile/" target="_blank" class="social-icon"
+                            aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Ihr Name" required>
+                <form class="contact-form animate-on-scroll slide-right" action="mailto:Pikeneren11@gmail.com"
+                    method="post" enctype="text/plain">
+                    <div class="form-group half-width">
+                        <input type="text" placeholder="Ihr Name" required name="name">
+                        <input type="email" placeholder="Ihre Email" required name="email">
                     </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Ihre E-Mail" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary full-width">Nachricht senden</button>
+                    <input type="text" placeholder="Betreff" class="full-width" required name="subject">
+                    <textarea placeholder="Ihre Nachricht" rows="5" required name="message"></textarea>
+                    <button type="submit" class="btn-primary">Nachricht senden</button>
                 </form>
             </div>
         </div>
@@ -191,11 +311,85 @@
             </div>
             <p>&copy; 2025 Piken's Tile. Alle Rechte vorbehalten.</p>
             <div class="footer-links">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutz</a>
+                <a href="#" id="open-impressum">Impressum</a>
+                <a href="#" id="open-agb">AGB</a>
             </div>
         </div>
     </footer>
+
+    <!-- Impressum Modal -->
+    <div class="modal" id="modal-impressum">
+        <div class="modal-content">
+            <button class="modal-close modal-close-btn">&times;</button>
+            <h2 class="gold-text">Impressum</h2>
+            <div class="modal-body">
+                <h3>Angaben gemäß § 5 TMG</h3>
+                <p><strong>Piken's Tile</strong><br>
+                    Inhaber: Eren Piken<br>
+                    Kalkofenweg 4<br>
+                    A-6840 Götzis<br>
+                    Österreich</p>
+
+                <h3>Kontakt</h3>
+                <p>Telefon: <a href="tel:+436601525090">+43 660 1525090</a><br>
+                    E-Mail: <a href="mailto:Pikeneren11@gmail.com">Pikeneren11@gmail.com</a></p>
+
+                <h3>Verantwortlich für den Inhalt</h3>
+                <p>Eren Piken<br>Kalkofenweg 4<br>6840 Götzis</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AGB Modal -->
+    <div class="modal" id="modal-agb">
+        <div class="modal-content">
+            <button class="modal-close modal-close-btn">&times;</button>
+            <h2 class="gold-text">Allgemeine Geschäftsbedingungen (AGB)</h2>
+            <div class="modal-body">
+                <h3>1. Geltungsbereich</h3>
+                <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und sonstigen
+                    Leistungen von Piken's Tile (nachfolgend „Auftragnehmer“), Inhaber Eren Piken, Kalkofenweg 4, 6840
+                    Götzis, Österreich, gegenüber seinen Kunden.</p>
+
+                <h3>2. Vertragsschluss</h3>
+                <p>Die Angebote des Auftragnehmers sind freibleibend. Ein Vertrag kommt erst durch die schriftliche
+                    Auftragsbestätigung oder durch Beginn der Ausführung der Arbeiten zustande.</p>
+
+                <h3>3. Leistungen</h3>
+                <p>Der Auftragnehmer erbringt Leistungen im Bereich Fliesenverlegung, Natursteinarbeiten, Badsanierungen
+                    und Sanierungen. Der Umfang der Leistungen ergibt sich aus dem jeweiligen Angebot.</p>
+
+                <h3>4. Preise und Zahlungsbedingungen</h3>
+                <p>Alle Preise verstehen sich in Euro. Soweit nicht anders vereinbart, sind Rechnungen sofort nach
+                    Erhalt ohne Abzug fällig. Bei größeren Projekten können Abschlagszahlungen vereinbart werden.</p>
+
+                <h3>5. Eigentumsvorbehalt</h3>
+                <p>Die gelieferte Ware bleibt bis zur vollständigen Bezahlung aller Forderungen im Eigentum des
+                    Auftragnehmers.</p>
+
+                <h3>6. Gewährleistung</h3>
+                <p>Es gelten die gesetzlichen Gewährleistungsfristen. Sichtbare Mängel sind unverzüglich nach Abnahme
+                    anzuzeigen.</p>
+
+                <h3>7. Gerichtsstand</h3>
+                <p>Für alle Streitigkeiten aus diesem Vertrag gilt österreichisches Recht. Gerichtsstand ist, soweit
+                    zulässig, der Sitz des Auftragnehmers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close close-modal" aria-label="Schließen">&times;</button>
+            <div class="modal-body">
+                <div class="modal-icon"></div>
+                <h2 class="modal-title"></h2>
+                <div class="modal-description"></div>
+                <div class="modal-details-grid"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
