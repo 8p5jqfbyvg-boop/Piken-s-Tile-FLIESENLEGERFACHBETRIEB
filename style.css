@@ -632,10 +632,12 @@ footer {
 @media (max-width: 768px) {
 
     .hero {
-        padding-top: 140px;
-        /* Push content down from navbar */
+        padding-top: 220px;
+        /* Push content down MUCH further */
         align-items: flex-start;
-        /* Align closer to top (after padding) instead of center, to control position better */
+        height: auto;
+        /* Allow growing */
+        min-height: 100vh;
     }
 
     .brand-icon svg {
