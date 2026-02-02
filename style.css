@@ -631,16 +631,40 @@ footer {
 
 @media (max-width: 768px) {
 
+    .hero {
+        padding-top: 140px;
+        /* Push content down from navbar */
+        align-items: flex-start;
+        /* Align closer to top (after padding) instead of center, to control position better */
+    }
+
+    .brand-icon svg {
+        width: 30px;
+        /* Smaller logo on mobile */
+        height: 30px;
+    }
+
+    .brand-logo {
+        transform: scale(0.9);
+        /* Slightly smaller brand lockup */
+    }
+
+    .hero-content {
+        margin-top: 20px;
+    }
+
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         /* Smaller headline for mobile */
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+        line-height: 1.2;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
         /* More readable subtitle size */
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        padding-top: 10px;
     }
 
     .hero-description {
