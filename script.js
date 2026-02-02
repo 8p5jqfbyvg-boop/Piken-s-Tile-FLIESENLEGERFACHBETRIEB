@@ -12,14 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Mobile Menu Toggle ---
-    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    const brandLogo = document.querySelector('.brand-logo'); // Select the logo
 
-    menuBtn.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+
+        // Hide logo when menu is open
+        if (brandLogo) {
+            brandLogo.classList.toggle('hidden');
+        }
+
         // Animate hamburger to X
-        const spans = menuBtn.querySelectorAll('span');
+        const spans = mobileMenuBtn.querySelectorAll('span');
         if (mobileMenu.classList.contains('active')) {
             spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
             spans[1].style.opacity = '0';
@@ -35,8 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
-            // Reset hamburger
-            const spans = menuBtn.querySelectorAll('span');
+            mobileMenuBtn.classList.remove('active'); // Reset button state
+
+            if (brandLogo) {
+                brandLogo.classList.remove('hidden'); // Show logo again
+            }
+
+            document.body.style.overflow = ''; // Ensure scrolling is enabled
+
+            // Reset hamburger icon
+            const spans = mobileMenuBtn.querySelectorAll('span');
             spans[0].style.transform = 'none';
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'none';
@@ -59,11 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- About Section Image Slider ---
+    const aboutImages = document.querySelectorAll('.image-slider img');
+    let currentAboutImage = 0;
+
+    if (aboutImages.length > 0) {
+        setInterval(() => {
+            aboutImages[currentAboutImage].classList.remove('active');
+            currentAboutImage = (currentAboutImage + 1) % aboutImages.length;
+            aboutImages[currentAboutImage].classList.add('active');
+        }, 3000);
+    }
+
+    // --- Intersection Observer ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // observer.unobserve(entry.target); // Optional: keep observing allows re-trigger
+                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -257,5 +286,161 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[currentSlide].classList.add('active');
         }, 4000); // Change image every 4 seconds
     }
+
+    // --- Service Modals ---
+    const modal = document.getElementById('service-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    const closeModal = document.querySelector('.close-modal');
+    const modalBody = {
+        icon: modal.querySelector('.modal-icon'),
+        title: modal.querySelector('.modal-title'),
+        desc: modal.querySelector('.modal-description'),
+        grid: modal.querySelector('.modal-details-grid')
+    };
+
+    // Detailed Content Data
+    const serviceData = {
+        'fliesen': {
+            icon: '🧱',
+            title: 'Fliesen & Naturstein',
+            description: 'Wir verarbeiten eine Vielzahl hochwertiger Materialien. Ob Naturstein für eine luxuriöse Optik oder robustes Feinsteinzeug für maximale Langlebigkeit – wir beraten Sie gerne zur perfekten Wahl für Ihr Zuhause. Hier eine Auswahl unserer Materialien:',
+            details: [
+                'Marmor (Carrara, Emperador)',
+                'Granit (Hartgestein)',
+                'Schiefer (Naturspalt)',
+                'Travertin (Offenporig/Gespachtelt)',
+                'Sandstein',
+                'Quarzit',
+                'Feinsteinzeug (Großformat)',
+                'Mosaik & Glasfliesen',
+                'Kalkstein',
+                'Und vieles mehr...'
+            ]
+        },
+        'sanierung': {
+            icon: '🏗️',
+            title: 'Komplett-Sanierung',
+            description: 'Von der Entkernung bis zur Übergabe: Wir sanieren Ihr Bad oder Ihren Wohnraum komplett aus einer Hand. Sparen Sie sich die Koordination verschiedener Handwerker.',
+            details: [
+                'Abriss & Entsorgung',
+                'Estrich- & Putzarbeiten',
+                'Abdichtung (DIN 18534)',
+                'Barrierefreie Duschen',
+                'Strom- & Wasserinstallation (Partner)',
+                'Endreinigung',
+                'Und vieles mehr...'
+            ]
+        },
+        'planung': {
+            icon: '✏️',
+            title: 'Design & Planung',
+            description: 'Jedes Projekt beginnt mit einer guten Planung. Wir visualisieren Ihre Ideen und helfen Ihnen bei der Auswahl der richtigen Formate, Farben und Verlegemuster.',
+            details: [
+                '3D-Visualisierung',
+                'Materialberatung vor Ort',
+                'Verlegepläne',
+                'Farbkonzepte',
+                'Lichtgestaltung',
+                'Aufmaß & Angebot',
+                'Und vieles mehr...'
+            ]
+        },
+        'kueche': {
+            icon: '🍳',
+            title: 'Küche',
+            description: 'Die Küche ist das Herz des Hauses. Wir gestalten sie mit hochwertigen Fliesen, Mosaiken oder Rückwänden pflegeleicht und stilvoll.',
+            details: [
+                'Küchenspiegel / Rückwände',
+                'Großformat-Fliesen für Böden',
+                'Mosaik-Akzente',
+                'Arbeitsplatten aus Naturstein',
+                'Pflegeleichte Oberflächen',
+                'Und vieles mehr...'
+            ]
+        },
+        'reparatur': {
+            icon: '🔧',
+            title: 'Reparatur & Service',
+            description: 'Kleine Schäden, große Wirkung. Wir reparieren defekte Fliesen, erneuern Silikonfugen oder sanieren Balkone fachgerecht und sauber.',
+            details: [
+                'Austausch einzelner Fliesen',
+                'Silikonfugen-Erneuerung',
+                'Treppenbeläge innen & außen',
+                'Balkon- & Terrassensanierung',
+                'Reparatur nach Wasserschaden',
+                'Schimmelbeseitigung',
+                'Und vieles mehr...'
+            ]
+        }
+    };
+
+    // Open Modal
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const serviceKey = card.getAttribute('data-service');
+            const data = serviceData[serviceKey];
+
+            if (data) {
+                // Populate Content
+                modalBody.icon.innerText = data.icon;
+                modalBody.title.innerText = data.title;
+                modalBody.desc.innerText = data.description;
+
+                // Build Grid
+                modalBody.grid.innerHTML = ''; // Clear old
+                data.details.forEach(item => {
+                    const pill = document.createElement('div');
+                    pill.className = 'detail-pill';
+                    pill.innerText = item;
+                    modalBody.grid.appendChild(pill);
+                });
+
+                // Show
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Stop background scrolling
+            }
+        });
+    });
+
+    // --- Impressum & AGB Modals ---
+    const impressumBtn = document.getElementById('open-impressum');
+    const agbBtn = document.getElementById('open-agb');
+    const impressumModal = document.getElementById('modal-impressum');
+    const agbModal = document.getElementById('modal-agb');
+    const allModals = document.querySelectorAll('.modal');
+    const closeButtons = document.querySelectorAll('.modal-close');
+
+    function openModal(modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAllModals() {
+        allModals.forEach(m => m.classList.remove('active'));
+        document.body.style.overflow = '';
+    }
+
+    if (impressumBtn) impressumBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(impressumModal); });
+    if (agbBtn) agbBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(agbModal); });
+
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', closeAllModals);
+    });
+
+    // Close on click outside (for all modals)
+    allModals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeAllModals();
+            }
+        });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
 
 });
