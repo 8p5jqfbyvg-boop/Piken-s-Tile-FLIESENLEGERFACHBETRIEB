@@ -93,8 +93,18 @@ section {
     text-align: center;
 }
 
+.section-header h2 {
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .gold-text {
-    color: var(--gold-primary);
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .divider {
@@ -190,12 +200,17 @@ section {
 
 .nav-links a {
     font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 600;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--text-primary);
+    opacity: 0.8;
+    transform: translateY(-1px);
 }
 
 .nav-links a.btn-primary {
@@ -205,10 +220,11 @@ section {
 
 /* --- Buttons (Pill Shape) --- */
 .btn-primary {
-    background-color: var(--gold-primary);
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
     color: #0F0F0F;
     padding: 10px 24px;
     border-radius: var(--radius-full);
+    border: 1px solid transparent;
     font-weight: 600;
     font-size: 0.9rem;
     transition: var(--transition);
@@ -284,6 +300,10 @@ section {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 24px;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero .subtitle {
@@ -358,6 +378,10 @@ section {
 .about-text h2 {
     font-size: 2.5rem;
     margin-bottom: 24px;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .about-text p {
@@ -378,8 +402,11 @@ section {
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-primary);
     margin-bottom: 4px;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .stat-label {
@@ -417,7 +444,10 @@ section {
     font-size: 1.8rem;
     margin-bottom: 16px;
     font-weight: 700;
-    color: var(--gold-primary);
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .service-card p {
@@ -457,6 +487,10 @@ section {
 .contact-info h2 {
     font-size: 2.25rem;
     margin-bottom: 1rem;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .contact-info p {
@@ -563,8 +597,11 @@ footer {
 
 .footer-logo h3 {
     font-size: 1.5rem;
-    color: var(--text-primary);
     margin-bottom: 8px;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .footer-links {
@@ -644,7 +681,10 @@ footer {
 .mobile-menu a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-primary);
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 @media (max-width: 768px) {
