@@ -143,8 +143,8 @@ section {
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    /* Gold Gradient Text */
-    background: linear-gradient(135deg, #C8A47E 0%, #F5E6CA 50%, #C8A47E 100%);
+    /* Gold Gradient Text - Richer Metallic Gold */
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -162,7 +162,11 @@ section {
     font-family: 'Outfit', sans-serif;
     font-size: 0.6rem;
     font-weight: 600;
-    color: var(--gold-primary);
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-top: 2px;
@@ -407,22 +411,36 @@ section {
     border-color: var(--border-subtle);
 }
 
-.card-icon {
-    font-size: 2rem;
-    margin-bottom: 24px;
-    color: var(--text-primary);
-    /* Keep clean */
-}
+/* .card-icon removed */
 
 .service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: var(--gold-primary);
 }
 
 .service-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+}
+
+/* Read More Link */
+.read-more {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+.service-card:hover .read-more {
+    transform: translateX(5px);
+    color: #F5E6CA;
+    /* Lighter gold on hover */
 }
 
 /* --- Contact Section (Split) --- */
@@ -1032,4 +1050,28 @@ footer {
 
 .modal-close-btn:hover {
     color: var(--gold-primary);
+}
+
+/* --- FORCE DESKTOP LAYOUT RESTORATION --- */
+@media (min-width: 769px) {
+    .hero {
+        align-items: center !important;
+        justify-content: center !important;
+        height: 100vh !important;
+        padding-top: 0 !important;
+        min-height: 700px !important;
+    }
+
+    .hero-content {
+        margin-top: 0 !important;
+    }
+
+    .brand-logo {
+        transform: none !important;
+    }
+
+    .brand-icon svg {
+        width: 40px !important;
+        height: 40px !important;
+    }
 }
