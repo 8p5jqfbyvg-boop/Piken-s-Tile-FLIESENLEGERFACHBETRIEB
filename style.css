@@ -1,1117 +1,322 @@
-/* --- Variables & Reset --- */
-:root {
-    /* Architectural Dark Palette */
-    --bg-body: #0F0F0F;
-    /* Soft Black */
-    --bg-surface: #1E1E1E;
-    --bg-surface-hover: #262626;
-
-    /* Text Colors */
-    --text-primary: #F5E6CA;
-    /* Updated to warm Cream/Gold tone */
-    --text-secondary: #AAAAAA;
-    --text-tertiary: #666666;
-
-    /* Accents */
-    --gold-primary: #C8A47E;
-    /* Sand Gold - Elegant, not Yellow */
-    --gold-soft: rgba(200, 164, 126, 0.15);
-
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
-
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-full: 999px;
-
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --border-subtle: rgba(255, 255, 255, 0.08);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-    /* Standard Professional Size */
-}
-
-body {
-    background-color: var(--bg-body);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-    /* Tight, modern tracking */
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-img {
-    max-width: 100%;
-    display: block;
-    border-radius: var(--radius-md);
-}
-
-/* --- Layout --- */
-section {
-    padding: 100px 0;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Utilities */
-.center-text {
-    text-align: center;
-}
-
-.section-header h2 {
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.gold-text {
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.divider {
-    display: none;
-    /* Modern style minimal - removing heavy dividers */
-}
-
-/* --- Navigation (Standard Fixed) --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
-    transition: var(--transition);
-    border: none;
-    box-shadow: none;
-}
-
-.navbar.scrolled {
-    background: rgba(15, 15, 15, 0.95);
-    padding: 15px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Logo - Brand Text (HTML) */
-.brand-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    line-height: 1;
-    padding: 5px 0;
-}
-
-.brand-text {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    /* Gold Gradient Text - Richer Metallic Gold */
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 4px;
-    letter-spacing: -0.02em;
-}
-
-.brand-icon {
-    margin: 2px 0;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
-.brand-subtext {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-top: 2px;
-}
-
-.scrolled .brand-text {
-    font-size: 1.5rem;
-}
-
-.scrolled .brand-icon svg {
-    width: 30px;
-    height: 30px;
-}
-
-/* Links */
-.nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-}
-
-.nav-links a {
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
-}
-
-.nav-links a.btn-primary {
-    color: #000;
-    /* Contrast on button */
-}
-
-/* --- Buttons (Pill Shape) --- */
-.btn-primary {
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    color: #0F0F0F;
-    padding: 10px 24px;
-    border-radius: var(--radius-full);
-    border: 1px solid transparent;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    border: 1px solid var(--gold-primary);
-}
-
-.btn-primary:hover {
-    background-color: #E0DEC0;
-    /* Lighter sand */
-    border-color: #E0DEC0;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    padding: 10px 24px;
-    border-radius: var(--radius-full);
-    font-weight: 500;
-    font-size: 0.9rem;
-    border: 1px solid var(--border-subtle);
-    transition: var(--transition);
-}
-
-.btn-secondary:hover {
-    border-color: var(--text-primary);
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* --- Hero Section --- */
-/* --- Hero Section --- */
-.hero {
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('project_3.jpg') no-repeat center center/cover;
-    position: relative;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    /* Slight rounding at bottom */
-    overflow: hidden;
-}
-
-#hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Behind content (z-2), In front of bg */
-    pointer-events: none;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.9));
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    /* Large but not ridiculous */
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hero .subtitle {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    font-weight: 400;
-    margin-bottom: 40px;
-    max-width: 500px;
-    margin-inline: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0.5;
-}
-
-.mouse {
-    display: none;
-}
-
-/* Remove old mouse, keep simple text/icon or nothing */
-
-/* --- About Section (Clean Grid) --- */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.about-image {
-    position: relative;
-}
-
-.image-slider {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    position: relative;
-    aspect-ratio: 1;
-    /* Square */
-}
-
-.image-slider img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 1s ease;
-    opacity: 0;
-}
-
-.image-slider img.active {
-    opacity: 1;
-}
-
-.image-accent {
-    display: none;
-}
-
-/* Remove busy lines */
-
-.about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 24px;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.about-text p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    font-size: 1rem;
-}
-
-.stats-grid {
-    display: flex;
-    gap: 48px;
-    margin-top: 40px;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 32px;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    color: var(--gold-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* --- Services (Dark Cards) --- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin-top: 60px;
-}
-
-.service-card {
-    background-color: var(--bg-surface);
-    padding: 40px 32px;
-    border-radius: var(--radius-md);
-    transition: var(--transition);
-    border: 1px solid transparent;
-}
-
-.service-card:hover {
-    background-color: var(--bg-surface-hover);
-    transform: translateY(-5px);
-    border-color: var(--border-subtle);
-}
-
-/* .card-icon removed */
-
-.service-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 16px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.service-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-/* Read More Link */
-.read-more {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--gold-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: var(--transition);
-}
-
-.service-card:hover .read-more {
-    transform: translateX(5px);
-    color: #F5E6CA;
-    /* Lighter gold on hover */
-}
-
-/* --- Contact Section (Split) --- */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    background-color: var(--bg-surface);
-    padding: 60px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
-}
-
-.contact-info h2 {
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.contact-info p {
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    line-height: 1.6;
-}
-
-.detail-item p {
-    margin-bottom: 0;
-    /* Remove the global p margin */
-    margin-top: 0;
-    line-height: 1.2;
-    color: var(--text-primary);
-    /* Make it slightly brighter/clearer */
-    font-weight: 500;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.detail-item .icon {
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg, rgba(200, 164, 126, 0.2), rgba(245, 230, 202, 0.1));
-    color: var(--gold-primary);
-    border: 1px solid rgba(200, 164, 126, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 30px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-subtle);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    /* Slightly lighter for contrast */
-    border: 1px solid var(--border-subtle);
-    padding: 16px;
-    border-radius: var(--radius-sm);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--gold-primary);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 2px rgba(200, 164, 126, 0.2);
-}
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-secondary);
-    transition: var(--transition);
-    border: 1px solid var(--border-subtle);
-}
-
-.social-icon:hover {
-    background: var(--gold-primary);
-    color: #000;
-    transform: translateY(-3px);
-    border-color: var(--gold-primary);
-}
-
-/* --- Footer --- */
-footer {
-    padding: 80px 0;
-    border-top: 1px solid var(--border-subtle);
-    background-color: var(--bg-body);
-}
-
-.footer-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 32px;
-}
-
-.footer-logo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.footer-links {
-    margin-top: 0;
-    justify-content: center;
-}
-
-.footer-links a {
-    color: var(--text-tertiary);
-    font-size: 0.85rem;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--text-primary);
-}
-
-/* --- Mobile --- */
-/* --- Mobile --- */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 1002;
-    /* Ensure button is above everything */
-}
-
-.mobile-menu-btn span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.brand-logo.hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-    /* Ensure it's fully gone */
-    transition: opacity 0.3s ease, visibility 0.3s;
-}
-
-.mobile-menu {
-    position: fixed;
-    inset: 0;
-    background: var(--bg-body);
-    z-index: 1000;
-    /* Behind button but above page */
-    padding-top: 100px;
-    display: flex;
-    /* Always flex, use visibility to hide */
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-
-    /* Animation Initial State */
-    opacity: 0;
-    visibility: hidden;
-    /* Hide correctly */
-    transform: translateY(-20px);
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.4s;
-}
-
-.mobile-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: all;
-}
-
-.mobile-menu a {
-    font-size: 1.5rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-@media (max-width: 768px) {
-
-    .hero {
-        padding-top: 220px;
-        /* Push content down MUCH further */
-        align-items: flex-start;
-        height: auto;
-        /* Allow growing */
-        min-height: 100vh;
-    }
-
-    .brand-icon svg {
-        width: 30px;
-        /* Smaller logo on mobile */
-        height: 30px;
-    }
-
-    .brand-logo {
-        transform: scale(0.9);
-        /* Slightly smaller brand lockup */
-    }
-
-    .hero-content {
-        margin-top: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem;
-        /* Smaller headline for mobile */
-        letter-spacing: 1px;
-        line-height: 1.2;
-    }
-
-    .subtitle {
-        font-size: 0.95rem;
-        /* More readable subtitle size */
-        margin-bottom: 25px;
-        padding-top: 10px;
-    }
-
-    .hero-description {
-        font-size: 0.9rem;
-        /* Smaller font for the long description */
-        line-height: 1.5;
-        /* Better line height */
-        display: block;
-        max-width: 90%;
-        /* Prevent text from hitting edges */
-        margin: 0 auto;
-        opacity: 0.9;
-    }
-
-    /* Ensure more space between elements */
-    .hero-buttons {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        /* consistent button width */
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 900px) {
-    .navbar {
-        top: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
-        transform: none;
-        max-width: none;
-        border: none;
-        border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .about-grid,
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        padding: 30px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-    }
-}
-
-/* --- Advanced Animations --- */
-
-/* Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes glowPulse {
-    0% {
-        box-shadow: 0 0 5px rgba(200, 164, 126, 0.1);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(200, 164, 126, 0.3);
-    }
-
-    100% {
-        box-shadow: 0 0 5px rgba(200, 164, 126, 0.1);
-    }
-}
-
-/* Base Animation Class */
-.animate-on-scroll {
-    opacity: 0;
-    /* Hidden by default */
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: none;
-    animation-fill-mode: forwards;
-}
-
-/* Specific Effects */
-.fade-up.visible {
-    animation: fadeInUp 0.8s forwards;
-}
-
-.slide-right.visible {
-    animation: slideInLeft 0.8s forwards;
-}
-
-/* Logic inverted for visual direction */
-.scale-in.visible {
-    animation: scaleIn 0.8s forwards;
-}
-
-/* Continuous Animations */
-.floating {
-    animation: float 6s ease-in-out infinite;
-}
-
-.pulsing {
-    animation: glowPulse 4s infinite;
-}
-
-/* Stagger Delays (1-10) */
-.delay-100 {
-    animation-delay: 0.1s;
-    transition-delay: 0.1s;
-}
-
-.delay-200 {
-    animation-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-.delay-300 {
-    animation-delay: 0.3s;
-    transition-delay: 0.3s;
-}
-
-.delay-400 {
-    animation-delay: 0.4s;
-    transition-delay: 0.4s;
-}
-
-.delay-500 {
-    animation-delay: 0.5s;
-    transition-delay: 0.5s;
-}
-
-.delay-600 {
-    animation-delay: 0.6s;
-    transition-delay: 0.6s;
-}
-
-/* 3D PERSPECTIVE (JS Hook) */
-.service-card {
-    transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
-    /* Fast transform for rotate */
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-.service-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* --- Service Modal (Fullscreen / Center) --- */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-.modal.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.modal-content {
-    background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
-    width: 90%;
-    max-width: 700px;
-    /* Comfortable reading width */
-    max-height: 90vh;
-    /* Allow scrolling if tall */
-    overflow-y: auto;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--gold-primary);
-    /* Gold border for premium feel */
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 20px rgba(200, 164, 126, 0.2);
-    position: relative;
-    padding: 20px;
-    transform: scale(0.95);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.modal.active .modal-content {
-    transform: scale(1);
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-    transition: var(--transition);
-    z-index: 10;
-}
-
-.close-modal:hover {
-    color: var(--gold-primary);
-    transform: rotate(90deg);
-}
-
-.modal-body {
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.modal-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
-
-.modal-title {
-    font-size: 2.5rem;
-    color: var(--gold-primary);
-    /* Gold Title */
-    margin-bottom: 16px;
-    font-family: var(--font-heading);
-}
-
-.modal-description {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    max-width: 500px;
-    margin-inline: auto;
-}
-
-/* Modal Details Grid (Stone Types) */
-.modal-details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* Increased min-width for better fit */
-    gap: 12px;
-    text-align: left;
-}
-
-.detail-pill {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-subtle);
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: flex-start;
-    /* Align top for multi-line */
-    gap: 10px;
-    transition: var(--transition);
-    height: 100%;
-    /* Fill grid cell */
-    line-height: 1.4;
-    word-break: break-word;
-    /* Prevent overflow */
-}
-
-.detail-pill:hover {
-    border-color: var(--gold-primary);
-    background: rgba(200, 164, 126, 0.1);
-    color: var(--text-primary);
-    transform: translateY(-2px);
-    /* Subtle lift instead of slide */
-}
-
-.detail-pill::before {
-    content: '•';
-    color: var(--gold-primary);
-    font-size: 1.5rem;
-    line-height: 1rem;
-    /* Fix alignment */
-    flex-shrink: 0;
-    /* Don't shrink the dot */
-}
-
-/* Close Button Specifics */
-.modal-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-    z-index: 10;
-}
-
-.modal-close-btn:hover {
-    color: var(--gold-primary);
-}
-
-/* --- FORCE DESKTOP LAYOUT RESTORATION --- */
-@media (min-width: 769px) {
-    .hero {
-        align-items: center !important;
-        justify-content: center !important;
-        height: 100vh !important;
-        padding-top: 0 !important;
-        min-height: 700px !important;
-    }
-
-    .hero-content {
-        margin-top: 0 !important;
-    }
-
-    .brand-logo {
-        transform: none !important;
-    }
-
-    .brand-icon svg {
-        width: 40px !important;
-        height: 40px !important;
-    }
-}
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piken's Tile | Fliesen & Design</title>
+    <meta name="description"
+        content="Piken's Tile - Ihr Fachbetrieb für Fliesen, Naturstein, Sanierung und Planung in Vorarlberg.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar animate-on-scroll fade-up">
+        <div class="container nav-content">
+            <a href="#" class="logo-link brand-logo">
+                <div class="brand-text">Piken's Tile</div>
+
+                <div class="brand-subtext">FLIESENLEGER-FACHBETRIEB</div>
+            </a>
+            <div class="nav-links">
+                <a href="#about">Über Uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <a href="#home">Start</a>
+        <a href="#about">Über Uns</a>
+        <a href="#services">Leistungen</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-content">
+            <h1 class="animate-on-scroll scale-in">Fliesen • Sanierung • Naturstein</h1>
+            <p class="subtitle animate-on-scroll fade-up delay-200">
+                Ihr neuer Ansprechpartner rund um Fliesen, Naturstein, Design und Qualität.<br><br>
+                <span class="hero-description">
+                    Mit jahrelanger Erfahrung und Leidenschaft für das Handwerk verwandeln wir Ihre Wohnträume in
+                    Realität.
+                    Wir stehen für exzellentes Handwerk, kreative Lösungen und absolute Zuverlässigkeit – von der ersten
+                    Beratung bis zur perfekten Verlegung.
+                </span>
+            </p>
+            <div class="hero-buttons animate-on-scroll fade-up delay-300">
+                <a href="#contact" class="btn-primary">Projekt anfragen</a>
+                <a href="#services" class="btn-secondary">Unsere Leistungen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll slide-right">
+                    <div class="image-slider">
+                        <img src="hero-1.jpg" alt="Referenz Bad 1" class="active">
+                        <img src="hero-2.jpg" alt="Referenz Bad 2">
+                        <img src="hero-3.jpg" alt="Referenz Bad 3">
+                        <img src="project_2.png" alt="Referenz Projekt 4">
+                        <img src="project_3.jpg" alt="Referenz Projekt 5">
+                        <img src="project_4.png" alt="Referenz Projekt 6">
+                        <img src="project_5.jpg" alt="Referenz Projekt 7">
+                    </div>
+                    <div class="image-accent"></div>
+                </div>
+                <div class="about-text animate-on-scroll fade-up">
+                    <h2 class="gold-text">Wir sind Piken's Tile.</h2>
+                    <p>Piken's Tile ist Ihr verlässlicher Partner für exklusive Fliesenarbeiten, edlen Naturstein und
+                        anspruchsvolles Design. Wir verbinden traditionelles Handwerk mit moderner Ästhetik, um Räume
+                        mit Charakter zu schaffen.</p>
+                    <p>Ob luxuriöse Bäder, stilvolle Wohnbereiche oder präzise Sanierungen: Wir realisieren Ihre
+                        Visionen mit höchster Sorgfalt und Qualität – vom Boden bis zur Wand.</p>
+
+                    <div class="stats-grid animate-on-scroll fade-up delay-200">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="100">100%</span>
+                            <span class="stat-label">Qualität</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Profi</span>
+                            <span class="stat-label">Handwerk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section dark-section">
+        <div class="container">
+            <div class="section-header center-text animate-on-scroll">
+                <h2>Unsere Leistungen</h2>
+                <p class="service-intro">
+                    Wir bieten Ihnen ein umfassendes Leistungsspektrum von der kreativen Planung bis zur fachgerechten
+                    Ausführung.
+                    Egal, ob Neubau, Sanierung oder kleine Reparaturen – wir setzen Ihre Wünsche mit höchster Präzision
+                    um.
+                </p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll delay-100" data-service="fliesen">
+
+                    <h3>Fliesen & Naturstein</h3>
+                    <p>Professionelle Verlegung von Fliesen und Naturstein für jeden Bereich.</p>
+                    <span class="read-more">Klicken für mehr Infos &rarr;</span>
+                </div>
+                <div class="service-card animate-on-scroll delay-200" data-service="sanierung">
+
+                    <h3>Sanierung</h3>
+                    <p>Komplette Sanierung von Bädern und Wohnräumen aus einer Hand.</p>
+                    <span class="read-more">Klicken für mehr Infos &rarr;</span>
+                </div>
+                <div class="service-card animate-on-scroll delay-300" data-service="planung">
+
+                    <h3>Planung</h3>
+                    <p>Individuelle Planung und Beratung für Ihr perfektes Zuhause.</p>
+                    <span class="read-more">Klicken für mehr Infos &rarr;</span>
+                </div>
+                <div class="service-card animate-on-scroll delay-400" data-service="kueche">
+
+                    <h3>Küche</h3>
+                    <p>Exklusive Fliesenspiegel, Rückwände und Böden für Ihre Küche.</p>
+                    <span class="read-more">Klicken für mehr Infos &rarr;</span>
+                </div>
+                <div class="service-card animate-on-scroll delay-500" data-service="reparatur">
+
+                    <h3>Reparatur</h3>
+                    <p>Fachgerechte Reparatur von Fliesen, Fugen und Wasserschäden.</p>
+                    <span class="read-more">Klicken für mehr Infos &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-wrapper animate-on-scroll">
+                <div class="contact-info">
+                    <h2>Kontaktieren Sie uns</h2>
+                    <p>Lassen Sie uns über Ihr Projekt sprechen. Wir beraten Sie gerne unverbindlich.</p>
+
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <p>Vorarlberg Götzis</p>
+                        </div>
+                        <div class="detail-item">
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p><a href="tel:+436601525090">+43 660 1525090</a></p>
+                        </div>
+                        <div class="detail-item">
+                            <div class="icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <p><a href="mailto:Pikeneren11@gmail.com">Pikeneren11@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pikens_tile/" target="_blank" class="social-icon"
+                            aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form animate-on-scroll slide-right" action="mailto:Pikeneren11@gmail.com"
+                    method="post" enctype="text/plain">
+                    <div class="form-group half-width">
+                        <input type="text" placeholder="Ihr Name" required name="name">
+                        <input type="email" placeholder="Ihre Email" required name="email">
+                    </div>
+                    <input type="text" placeholder="Betreff" class="full-width" required name="subject">
+                    <textarea placeholder="Ihre Nachricht" rows="5" required name="message"></textarea>
+                    <button type="submit" class="btn-primary">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <h3>Piken's Tile</h3>
+            </div>
+            <p>&copy; 2025 Piken's Tile. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="#" id="open-impressum">Impressum</a>
+                <a href="#" id="open-agb">AGB</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Impressum Modal -->
+    <div class="modal" id="modal-impressum">
+        <div class="modal-content">
+            <button class="modal-close modal-close-btn">&times;</button>
+            <h2 class="gold-text">Impressum</h2>
+            <div class="modal-body">
+                <h3>Impressum & Offenlegung gemäß § 25 MedG, § 5 ECG</h3>
+                <p><strong>Piken's Tile</strong><br>
+                    Inhaber: Eren Piken<br>
+                    A-6840 Götzis<br>
+                    Österreich</p>
+
+                <h3>Kontakt</h3>
+                <p>Telefon: <a href="tel:+436601525090">+43 660 1525090</a><br>
+                    E-Mail: <a href="mailto:Pikeneren11@gmail.com">Pikeneren11@gmail.com</a></p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- AGB Modal -->
+    <div class="modal" id="modal-agb">
+        <div class="modal-content">
+            <button class="modal-close modal-close-btn">&times;</button>
+            <h2 class="gold-text">Allgemeine Geschäftsbedingungen (AGB)</h2>
+            <div class="modal-body">
+                <h3>1. Geltungsbereich</h3>
+                <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und sonstigen
+                    Leistungen von Piken's Tile (nachfolgend „Auftragnehmer“), Inhaber Eren Piken, 6840
+                    Götzis, Österreich, gegenüber seinen Kunden.</p>
+
+                <h3>2. Vertragsschluss</h3>
+                <p>Die Angebote des Auftragnehmers sind freibleibend. Ein Vertrag kommt erst durch die schriftliche
+                    Auftragsbestätigung oder durch Beginn der Ausführung der Arbeiten zustande.</p>
+
+                <h3>3. Leistungen</h3>
+                <p>Der Auftragnehmer erbringt Leistungen im Bereich Fliesenverlegung, Natursteinarbeiten, Badsanierungen
+                    und Sanierungen. Der Umfang der Leistungen ergibt sich aus dem jeweiligen Angebot.</p>
+
+                <h3>4. Preise und Zahlungsbedingungen</h3>
+                <p>Alle Preise verstehen sich in Euro. Soweit nicht anders vereinbart, sind Rechnungen sofort nach
+                    Erhalt ohne Abzug fällig. Bei größeren Projekten können Abschlagszahlungen vereinbart werden.</p>
+
+                <h3>5. Eigentumsvorbehalt</h3>
+                <p>Die gelieferte Ware bleibt bis zur vollständigen Bezahlung aller Forderungen im Eigentum des
+                    Auftragnehmers.</p>
+
+                <h3>6. Gewährleistung</h3>
+                <p>Es gelten die gesetzlichen Gewährleistungsfristen. Sichtbare Mängel sind unverzüglich nach Abnahme
+                    anzuzeigen.</p>
+
+                <h3>7. Gerichtsstand</h3>
+                <p>Für alle Streitigkeiten aus diesem Vertrag gilt österreichisches Recht. Gerichtsstand ist, soweit
+                    zulässig, der Sitz des Auftragnehmers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close close-modal" aria-label="Schließen">&times;</button>
+            <div class="modal-body">
+                <div class="modal-icon"></div>
+                <h2 class="modal-title"></h2>
+                <div class="modal-description"></div>
+                <div class="modal-details-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
