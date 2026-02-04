@@ -276,16 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Simple Image Slider ---
-    const slides = document.querySelectorAll('.image-slider img');
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 4000); // Change image every 4 seconds
-    }
+
 
     // --- Service Modals ---
     const modal = document.getElementById('service-modal');
@@ -301,7 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Detailed Content Data
     const serviceData = {
         'fliesen': {
-            icon: '🧱',
             title: 'Fliesen & Naturstein',
             description: 'Wir verarbeiten eine Vielzahl hochwertiger Materialien. Ob Naturstein für eine luxuriöse Optik oder robustes Feinsteinzeug für maximale Langlebigkeit – wir beraten Sie gerne zur perfekten Wahl für Ihr Zuhause. Hier eine Auswahl unserer Materialien:',
             details: [
@@ -318,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'sanierung': {
-            icon: '🏗️',
             title: 'Komplett-Sanierung',
             description: 'Von der Entkernung bis zur Übergabe: Wir sanieren Ihr Bad oder Ihren Wohnraum komplett aus einer Hand. Sparen Sie sich die Koordination verschiedener Handwerker.',
             details: [
@@ -332,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'planung': {
-            icon: '✏️',
             title: 'Design & Planung',
             description: 'Jedes Projekt beginnt mit einer guten Planung. Wir visualisieren Ihre Ideen und helfen Ihnen bei der Auswahl der richtigen Formate, Farben und Verlegemuster.',
             details: [
@@ -346,7 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'kueche': {
-            icon: '🍳',
             title: 'Küche',
             description: 'Die Küche ist das Herz des Hauses. Wir gestalten sie mit hochwertigen Fliesen, Mosaiken oder Rückwänden pflegeleicht und stilvoll.',
             details: [
@@ -359,7 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'reparatur': {
-            icon: '🔧',
             title: 'Reparatur & Service',
             description: 'Kleine Schäden, große Wirkung. Wir reparieren defekte Fliesen, erneuern Silikonfugen oder sanieren Balkone fachgerecht und sauber.',
             details: [
@@ -382,7 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (data) {
                 // Populate Content
-                modalBody.icon.innerText = data.icon;
+                // Populate Content
+                modalBody.icon.style.display = 'none'; // Hide icon completely
                 modalBody.title.innerText = data.title;
                 modalBody.desc.innerText = data.description;
 
@@ -444,3 +431,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
